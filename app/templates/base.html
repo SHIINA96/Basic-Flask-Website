@@ -1,0 +1,41 @@
+<!-- 使用extends引用base.html -->
+<!-- {% extends 'bootstrap/base.html' %} -->
+
+
+{% block title %}
+    <!-- 通过if判断，如果title变量存在则为title -->
+    <!-- 如果不存在，则为Flask App -->
+    {% if title %}
+        <!-- 使用双括号，接收由flask传递过来的变量 -->
+        <!-- {{ title }} | Flask App -->
+    {% else %}
+        <!-- Flask App -->
+    {% endif %}
+{% endblock %}
+
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+
+<!-- 对子模块进行修改 -->
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+        {% block app_content %} 
+        {% endblock %}
+    </div>
+{% endblock %}
