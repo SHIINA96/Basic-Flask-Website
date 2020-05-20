@@ -1,19 +1,20 @@
 # Basic Flask Website
-* A simple Flask website, including user register, login, logout and password reset function
-* Other language version: [简体中文](README.zh-cn.md), [English](README.md)
+* 一个简单的Flask网页模版, 包含了用户注册，登录，登出以及密码找回功能
+* 其他语言版本: [简体中文](README.zh-cn.md), [English](README.md)
 
-## Get Started
-* Using Python 3.7, create a .env file to storge database link and password
-* MySQL as local database
 
-## Prerequisites
-Create a MySQL non-root user which can access database with localhost
+## 开始
+* 使用Python3.7建立，在根目录下添加.env文件来存储数据库链接以及密码
+* 本地数据库使用MySQL
+
+## 前期准备
+给本地MySQL建立可外部访问的非root用户
    ```
    Use FlaskTest;
    Create User '***'@'localhost' identified by '***';
    grant all privileges on FlaskTest.* to '***'@'%';
    ```
-Table Structure
+表的结构
 ```
 +----------+--------------+------+-----+---------+----------------+
 | Field    | Type         | Null | Key | Default | Extra          |
@@ -26,11 +27,11 @@ Table Structure
 +----------+--------------+------+-----+---------+----------------+
 ```
 
-## Installing and Deployment
+## 安装与部署
 ```
 virtualenv venv
 pip3 install -r requirements.txt
 run app.py
 ```
-## Reference
+## 参考
 * [Yufan Zheng](https://github.com/alphafan/flask-user-auth-example/blob/master/app/main/routes.py)  --  flask user auth example
